@@ -1,0 +1,213 @@
+<style>
+  .form {
+    margin: 0 auto;
+    width: 50%;
+  }
+  .signinbackground {
+    /* background-image: url("background.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+    /* width: 100vw; */
+    /* height: 100vh; */
+    padding: 30px;
+  }
+  .box {
+    width: 477px;
+    /* height: 520px; */
+    height: 509px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 16%);
+    border: solid 1px #e0e0eb;
+    background-color: #4949e3;
+    margin: 0 auto;
+  }
+  .insidebox {
+    margin: 0 3rem;
+  }
+  h1 {
+    text-align: center;
+    margin: 2rem;
+    color: #ffffff;
+  }
+
+  label {
+    display: inline-block;
+    color: #ffffff;
+  }
+  .formInput {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #bfc9c0;
+    padding: 10px;
+  }
+
+  .btnlay {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .formInput:focus-visible {
+    border: 1px solid #699b6e !important;
+    outline: none;
+  }
+
+  .Submibtn {
+    background: #a4b2db;
+    border: 0px;
+    color: #fff;
+    padding: 11px 11px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 37%;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .Submibtn:hover {
+    background-color: #5277e3;
+  }
+
+  .warmsg {
+    height: 10px;
+  }
+
+  .alert-msg {
+    color: #842029;
+  }
+  .Signinbutton {
+    width: 80px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffac33;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-family: Montserrat-Bold;
+    font-size: 14px;
+    margin: 0rem 8rem;
+  }
+</style>
+<div
+  class="signinbackground"
+  [ngStyle]="{ backgroundImage: 'url(assets/images/background.png)' }"
+>
+  <div class="box">
+    <div class="insidebox">
+      <h1>Register Form</h1>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="formLay">
+        <div class="form-group">
+          <label for="name" class="formLabel">Name:</label>
+          <input
+            formControlName="name"
+            id="name"
+            type="text"
+            class="formInput"
+          />
+          <div class="warmsg">
+            <div *ngIf="f['name'].dirty && f['name'].invalid" class="alert-msg">
+              <div *ngIf="f['name'].errors && f['name'].errors['required']">
+                Name is required.
+              </div>
+              <div *ngIf="f['name'].errors && f['name'].errors['minlength']">
+                Name should be 3 character.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="formLabel">Email</label>
+          <input
+            formControlName="email"
+            id="email"
+            type="text"
+            class="formInput"
+          />
+          <div class="warmsg">
+            <div
+              *ngIf="f['email'].dirty && f['email'].invalid"
+              class="alert-msg"
+            >
+              <div *ngIf="f['email'].errors && f['email'].errors['required']">
+                Email is required.
+              </div>
+              <div *ngIf="f['email'].errors && f['email'].errors['email']">
+                Please, enter valid email address.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mobile" class="formLabel">Mobile Number:</label>
+          <input
+            formControlName="mobile"
+            id="mobile"
+            type="text"
+            class="formInput"
+          />
+          <div class="warmsg">
+            <div
+              *ngIf="f['mobile'].dirty && f['mobile'].invalid"
+              class="alert-msg"
+            >
+              <div *ngIf="f['mobile'].errors && f['mobile'].errors['required']">
+                Mobie Number is required.
+              </div>
+              <div *ngIf="f['mobile'].errors?.['pattern'] && f['mobile'].dirty">
+                Please enter 10 digit mobile number
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Password" class="formLabel">Password:</label>
+          <input
+            formControlName="Password"
+            id="Password"
+            type="text"
+            class="formInput"
+          />
+          <div class="warmsg">
+            <div
+              *ngIf="f['Password'].dirty && f['Password'].invalid"
+              class="alert-msg"
+            >
+              <div
+                *ngIf="f['Password'].errors && f['Password'].errors['required']"
+              >
+                Password is required.
+              </div>
+              <div
+                *ngIf="
+                  f['Password'].errors && f['Password'].errors['minlength']
+                "
+              >
+                Password should be 5 character.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btnlay">
+          <button
+            class="Signinbutton"
+            (click)="onContactClicked()"
+            [disabled]="form.invalid"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,88 @@
+<style>
+  .signinbackground {
+    /* background-image: url("background.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+    /* width: 100vw; */
+    /* height: 100vh; */
+    padding: 30px;
+  }
+  .box {
+    width: 477px;
+    /* height: 520px; */
+    height: 509px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 16%);
+    border: solid 1px #e0e0eb;
+    background-color: #e34981;
+    margin: 0 auto;
+  }
+  .insidebox {
+    margin: 0 3rem;
+  }
+  h1 {
+    text-align: center;
+    margin: 2rem;
+    color: #ffffff;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 3rem;
+    color: #ffffff;
+  }
+  .Signinbutton {
+    width: 80px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffac33;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-family: Montserrat-Bold;
+    font-size: 14px;
+    margin: 0rem 8rem;
+  }
+</style>
+
+<!-- <img [src]="myImage" alt="" class="image" /> -->
+<div
+  class="signinbackground"
+  [ngStyle]="{ backgroundImage: 'url(assets/images/background.png)' }"
+>
+  <div class="box">
+    <div class="insidebox">
+      <h1>Contact Form</h1>
+      <form #contactForm="ngForm" (submit)="GetData(contactForm.value)">
+        <div class="form-group">
+          <label for="firstName" class="col-sm-6">First Name</label>
+
+          <input [(ngModel)]="firstName" name="FirstName" class="col-sm-6" />
+        </div>
+
+        <div class="form-group">
+          <label for="lastName" class="col-sm-6">Last Name</label>
+          <input [(ngModel)]="lastName" name="LastName" class="col-sm-6" />
+        </div>
+
+        <div class="form-group">
+          <label for="Password" class="col-sm-6">Password</label>
+          <input [(ngModel)]="Password" name="Password" class="col-sm-6" />
+        </div>
+
+        <div class="form-group">
+          <label for="PhoneNumber" class="col-sm-6">Phone Number</label>
+          <input
+            [(ngModel)]="PhoneNumber"
+            name="PhoneNumber"
+            class="col-sm-6"
+          />
+        </div>
+
+        <button type="button" class="Signinbutton">Sign In</button>
+      </form>
+    </div>
+  </div>
+  {{ contactForm.value | json }}
+</div>
