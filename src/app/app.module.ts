@@ -8,6 +8,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { LearningComponent } from './learning/learning.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { APIComponent } from './api/api.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactFormComponent,
     RegisterFormComponent,
     LearningComponent,
+    APIComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
